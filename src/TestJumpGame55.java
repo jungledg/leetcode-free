@@ -20,8 +20,18 @@ public class TestJumpGame55 {
 
 class Solution55 {
     public boolean canJump(int[] nums) {
-        boolean[] flags = new boolean[nums.length];
-        return canArrive(nums, nums.length-1, flags);
+//        boolean[] flags = new boolean[nums.length];
+//        return canArrive(nums, nums.length-1, flags);
+        int n = nums.length;
+        int last = n - 1;
+        for (int i = n - 2 ; i >= 0; i--) {
+
+            if (i + nums[i] >= last) {
+                last = i;
+            }
+        }
+        return last <= 0;
+
     }
 
     private boolean canArrive(int[] nums,int index, boolean[] flags) {
